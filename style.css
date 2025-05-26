@@ -1,123 +1,267 @@
+/* Global Styles */
 body {
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #f0f2f5; /* Light grayish blue */
     color: #333;
+    display: flex;
+    justify-content: center;
 }
 
 #app-container {
-    max-width: 900px;
-    margin: auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 1000px; /* Increased max-width */
+    margin: 20px;
+    background: #ffffff;
+    padding: 25px; /* Increased padding */
+    border-radius: 12px; /* Softer radius */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
+/* Headings */
 h1, h2, h3 {
-    color: #333;
+    color: #2c3e50; /* Darker, more modern blue */
+    margin-top: 0;
 }
 
 h1 {
     text-align: center;
+    margin-bottom: 30px; /* Increased margin */
+    font-size: 2.2em; /* Larger font size */
+}
+
+h2 {
+    font-size: 1.6em; /* Adjusted size */
+    border-bottom: 2px solid #e0e0e0; /* Subtle separator */
+    padding-bottom: 8px;
     margin-bottom: 20px;
 }
 
-.controls-section, .game-section, .log-section, .help-section {
-    margin-bottom: 30px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.video-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 15px 0;
-}
-
-video {
-    width: 320px;
-    height: 240px;
-    border: 1px solid #ccc;
-    background-color: #000;
-}
-
-.call-controls, .action-group {
-    margin-top: 10px;
+h3 {
+    font-size: 1.2em;
+    color: #34495e; /* Slightly lighter than h2 */
     margin-bottom: 10px;
 }
 
+/* Sections */
+.controls-section, 
+.game-section, 
+.log-section, 
+.help-section {
+    margin-bottom: 35px; /* Increased spacing */
+    padding: 20px; /* Increased padding */
+    background-color: #fdfdfd; /* Slightly off-white for sections */
+    border: 1px solid #e7e7e7; /* Lighter border */
+    border-radius: 8px; /* Consistent radius */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow for sections */
+}
+
+/* Video Area */
+.video-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 20px; /* Space between video elements */
+    margin: 20px 0;
+}
+
+.video-container > div { /* Target the divs holding h3 and video */
+    text-align: center; /* Center the h3 */
+}
+
+video {
+    width: 100%; /* Make video responsive within its container */
+    max-width: 320px; /* Max width for videos */
+    height: auto;   /* Maintain aspect ratio */
+    border: 2px solid #bdc3c7; /* Clearer border */
+    border-radius: 6px;
+    background-color: #000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Call Controls & Action Groups */
+.call-controls, 
+.action-group {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    align-items: center;
+    gap: 10px; /* Space between items */
+}
+
+/* Buttons */
 button {
-    padding: 10px 15px;
+    padding: 12px 18px; /* Slightly larger padding */
     margin: 5px;
     border: none;
-    background-color: #5cb85c;
+    background-color: #3498db; /* Primary blue */
     color: white;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 6px; /* Softer radius */
+    font-size: 0.95em;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 button:disabled {
-    background-color: #ccc;
+    background-color: #bdc3c7; /* Light gray for disabled */
+    color: #7f8c8d;
     cursor: not-allowed;
+    box-shadow: none;
 }
 
 button#hangupButton {
-    background-color: #d9534f;
+    background-color: #e74c3c; /* Red for hang up */
+}
+button#hangupButton:hover {
+    background-color: #c0392b; /* Darker red on hover */
 }
 
+button#toggleHelpButton {
+    background-color: #f39c12; /* Orange for help */
+}
+button#toggleHelpButton:hover {
+    background-color: #e67e22; /* Darker orange */
+}
+
+
+/* Input Fields */
 input[type="text"] {
-    padding: 10px;
+    padding: 12px;
     margin: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    min-width: 200px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    flex-grow: 1; /* Allow input to take available space */
+    min-width: 180px; /* Minimum width before wrapping */
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+input[type="text"]:focus {
+    border-color: #3498db; /* Blue border on focus */
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2); /* Subtle glow */
+    outline: none;
+}
+
+/* Game Section Layout */
 .game-section {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 25px; /* Increased gap */
 }
 .game-info, .game-actions {
     flex: 1;
+    min-width: 280px; /* Ensure sections don't get too squished */
+    padding: 15px; /* Padding within game sub-sections */
+    background-color: #fff; /* White background for sub-sections */
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
 }
 
+.game-info p {
+    margin: 8px 0;
+}
+.game-info span { /* Target spans for game data */
+    font-weight: bold;
+    color: #2980b9; /* Blue for data points */
+}
+#currentPlayer {
+    color: #e67e22 !important; /* Orange for current player, important to override */
+    font-size: 1.1em;
+}
+
+/* Lists - Player List & Game Log */
 #playerList, #gameLog {
     list-style-type: none;
     padding-left: 0;
-    max-height: 200px;
+    max-height: 220px; /* Slightly increased height */
     overflow-y: auto;
-    border: 1px solid #eee;
-    padding: 10px;
+    border: 1px solid #e0e0e0; /* Lighter border */
+    border-radius: 6px; /* Consistent radius */
+    padding: 12px; /* Increased padding */
+    background-color: #f9f9f9; /* Very light gray background */
+}
+
+#playerList li, #gameLog li {
+    padding: 6px 2px; /* More padding for list items */
+    border-bottom: 1px solid #f0f0f0; /* Lighter item separator */
+}
+#playerList li:last-child,
+#gameLog li:last-child {
+    border-bottom: none;
 }
 
 #playerList li.active-player {
     font-weight: bold;
-    color: #5cb85c;
+    color: #27ae60; /* Vibrant green for active player */
+    background-color: #e8f5e9; /* Light green highlight */
+    padding-left: 8px;
+    border-left: 4px solid #27ae60;
 }
 
-#gameLog li {
-    padding: 3px 0;
-    border-bottom: 1px dotted #eee;
-}
-#gameLog li:last-child {
-    border-bottom: none;
-}
-.log-system { color: dodgerblue; }
-.log-error { color: red; font-weight: bold; }
-.log-join { color: green; }
-.log-turn { color: darkorange; }
-.log-action { color: purple; }
-.log-timeout { color: sienna; }
-.log-callout { color: crimson; font-style: italic; }
+/* Game Log specific styling */
+.log-system { color: #3498db; } /* Blue */
+.log-error { color: #e74c3c; font-weight: bold; } /* Red */
+.log-join { color: #2ecc71; font-weight: bold; } /* Green */
+.log-turn { color: #f39c12; } /* Orange */
+.log-action { color: #9b59b6; } /* Purple */
+.log-timeout { color: #7f8c8d; font-style: italic; } /* Gray */
+.log-callout { color: #c0392b; font-weight: bold; font-style: italic; } /* Darker Red */
 
 
+/* Help Section */
 #helpContent {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #e9e9e9;
-    border-radius: 4px;
+    margin-top: 15px; /* Increased margin */
+    padding: 15px;
+    background-color: #e9f7ef; /* Light greenish background */
+    border: 1px solid #d1e7dd;
+    border-radius: 6px;
+}
+#helpContent h3 {
+    margin-top: 0;
+    color: #1e6042; /* Darker green for help heading */
+}
+#helpContent ol {
+    padding-left: 20px;
+}
+#helpContent li {
+    margin-bottom: 8px;
+}
+
+/* Basic Responsiveness for Video and Game Sections */
+@media (max-width: 768px) {
+    .video-container {
+        flex-direction: column; /* Stack videos vertically */
+        align-items: center; /* Center videos when stacked */
+    }
+    video {
+        max-width: 90%; /* Allow videos to take more width */
+    }
+    .game-section {
+        flex-direction: column; /* Stack game info/actions */
+    }
+    .game-info, .game-actions {
+        min-width: 100%; /* Allow full width */
+    }
+    .call-controls, .action-group {
+        flex-direction: column;
+        align-items: stretch; /* Make buttons/inputs full width */
+    }
+    input[type="text"] {
+        min-width: auto; /* Remove min-width */
+        width: calc(100% - 10px); /* Adjust width considering margin */
+    }
+    button {
+        width: calc(100% - 10px); /* Adjust width considering margin */
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
