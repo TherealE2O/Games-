@@ -1,0 +1,123 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+#app-container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.controls-section, .game-section, .log-section, .help-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+
+video {
+    width: 320px;
+    height: 240px;
+    border: 1px solid #ccc;
+    background-color: #000;
+}
+
+.call-controls, .action-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #5cb85c;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button#hangupButton {
+    background-color: #d9534f;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-width: 200px;
+}
+
+.game-section {
+    display: flex;
+    gap: 20px;
+}
+.game-info, .game-actions {
+    flex: 1;
+}
+
+#playerList, #gameLog {
+    list-style-type: none;
+    padding-left: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+
+#playerList li.active-player {
+    font-weight: bold;
+    color: #5cb85c;
+}
+
+#gameLog li {
+    padding: 3px 0;
+    border-bottom: 1px dotted #eee;
+}
+#gameLog li:last-child {
+    border-bottom: none;
+}
+.log-system { color: dodgerblue; }
+.log-error { color: red; font-weight: bold; }
+.log-join { color: green; }
+.log-turn { color: darkorange; }
+.log-action { color: purple; }
+.log-timeout { color: sienna; }
+.log-callout { color: crimson; font-style: italic; }
+
+
+#helpContent {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border-radius: 4px;
+}
